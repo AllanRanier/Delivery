@@ -20,6 +20,8 @@ class Usuarios extends BaseController
 			'titulo' => 'Listando os Usuários',
 			'usuarios' =>  $this->UsuarioModel->findAll()
 		];
+
+		session()->set('sucesso', 'Teste bb');
 		return view('Admin/Usuarios/index', $data);
 	}
 
