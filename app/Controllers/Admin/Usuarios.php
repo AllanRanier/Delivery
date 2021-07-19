@@ -42,6 +42,20 @@ class Usuarios extends BaseController
 		return $this->response->setJson($resultado);
 	}
 
+	public function editar($id = null)
+	{
+		$usuario = $this->buscaUsuarioOu404($id);
+
+		// dd($usuario);
+		$data = [
+			'titulo' => "Editar o usuário $usuario->nome",
+			'usuario' => $usuario
+
+		];
+
+		return view('Admin/Usuarios/editar', $data);
+	}
+
 	public function show($id = null)
 	{
 		$usuario = $this->buscaUsuarioOu404($id);
