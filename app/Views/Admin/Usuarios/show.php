@@ -1,21 +1,21 @@
 <?php echo $this->extend('Admin/layout/principal');  ?>
 
-<?php echo $this->section('titulo');?> <?php echo $titulo; ?>  <?php echo $this->endSection(); ?>
+<?php echo $this->section('titulo'); ?> <?php echo $titulo; ?> <?php echo $this->endSection(); ?>
 
 
-<?php echo $this->section('estilos');?>
+<?php echo $this->section('estilos'); ?>
 <!-- Enviando para o template principal os estilos -->
 <?php echo $this->endSection(); ?>
 
 
 
-<?php echo $this->section('conteudo');?>
+<?php echo $this->section('conteudo'); ?>
 
 <div class="row">
     <div class="col-lg-6 grid-margin stretch-card">
         <div class="card">
             <div class="card-header bg-primary pb-0 pt-4 ">
-                <h4 class="card-title text-white"><?php echo esc($titulo); ?></h4>   
+                <h4 class="card-title text-white"><?php echo esc($titulo); ?></h4>
             </div>
             <div class="card-body">
                 <p class="card-text">
@@ -28,11 +28,11 @@
                 </p>
                 <p class="card-text">
                     <span class="font-weight-bold">Ativo:</span>
-                    <?php echo esc($usuario->ativo == 't' ? 'Sim': 'Não') ?>
+                    <?php echo esc($usuario->ativo == 't' ? 'Sim' : 'Não') ?>
                 </p>
                 <p class="card-text">
                     <span class="font-weight-bold">Perfil:</span>
-                    <?php echo esc($usuario->is_admin == 't' ? 'Administrador': 'Cliente') ?>
+                    <?php echo esc($usuario->is_admin == 't' ? 'Administrador' : 'Cliente') ?>
                 </p>
                 <p class="card-text">
                     <span class="font-weight-bold">Criado:</span>
@@ -46,12 +46,15 @@
             </div>
             <div class="card-footer bg-primary pb-0 pt-4">
                 <a class="card-title text-white btn btn-dark btn-sm mr-2" href="<?php echo site_url("admin/usuarios/editar/$usuario->id") ?>">
+                    <i class="mdi mdi-wrench btn-icon-append"></i>
                     Editar
                 </a>
                 <a class="card-title text-white btn btn-danger btn-sm mr-2" href="<?php echo site_url("admin/usuarios/excluir/$usuario->id") ?>">
+                    <i class="mdi mdi-delete-forever btn-icon-append"></i>
                     Excluir
                 </a>
                 <a class="card-title text-white btn btn-info btn-sm" href="<?php echo site_url("admin/usuarios/") ?>">
+                    <i class="mdi mdi-arrow-left btn-icon-append"></i>
                     Voltar
                 </a>
             </div>
@@ -64,6 +67,6 @@
 
 
 
-<?php echo $this->section('scpripts');?>
+<?php echo $this->section('scpripts'); ?>
 <!-- Enviando para o template principal o scripts -->
 <?php echo $this->endSection(); ?>
