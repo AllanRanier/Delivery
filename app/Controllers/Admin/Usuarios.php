@@ -86,7 +86,6 @@ class Usuarios extends BaseController
 			}
 
 			$usuario->fill($post);
-			dd($usuario);
 			if (!$usuario->hasChanged()) {
 				return redirect()->back()->with('info', "Não dados para atualizar.");
 			}

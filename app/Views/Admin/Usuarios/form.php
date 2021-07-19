@@ -2,22 +2,22 @@
 
     <div class="form-group col-md-4">
         <label for="nome">Nome</label>
-        <input type="text" class="form-control" id="nome" name="nome" value="<?php echo esc($usuario->nome) ?>">
+        <input type="text" class="form-control" id="nome" name="nome" value="<?php echo  old('nome',esc($usuario->nome)) ?>">
     </div>
 
     <div class="form-group col-md-2">
         <label for="cpf">CPF</label>
-        <input type="text" class="form-control cpf" id="cpf" name="cpf" value="<?php echo esc($usuario->cpf) ?>">
+        <input type="text" class="form-control cpf" id="cpf" name="cpf" value="<?php echo old('cpf',esc($usuario->cpf)) ?>">
     </div>
 
     <div class="form-group col-md-3">
         <label for="telefone">Telefone</label>
-        <input type="text" class="form-control sp_celphones" id="telefone" name="telefone" value="<?php echo esc($usuario->telefone) ?>">
+        <input type="text" class="form-control sp_celphones" id="telefone" name="telefone" value="<?php echo old('telefone',esc($usuario->telefone)) ?>">
     </div>
 
     <div class="form-group col-md-3">
         <label for="email">E-mail</label>
-        <input type="email" class="form-control" id="email" name="email" value="<?php echo esc($usuario->email) ?>">
+        <input type="email" class="form-control" id="email" name="email" value="<?php echo old('email',esc($usuario->email)) ?>">
     </div>
 
 </div>
