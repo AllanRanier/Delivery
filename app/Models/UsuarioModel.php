@@ -8,7 +8,19 @@ class UsuarioModel extends Model
 {
 	protected $table = 'usuarios';
 	protected $returnType = 'App\Entities\Usuario';
-	protected $allowedFields = ['nome','email','telefone', 'password_hash'];
+	protected $allowedFields = [
+		'nome',
+		'email',
+		'telefone',
+		'password_hash',
+		'ativacao_hash',
+		'reset_hash',
+		'reset_expira_em',
+		'criado_em',
+		'is_admin',
+		'ativo',
+
+	];
 	protected $useSoftDelete = true;
 	protected $useTimestamps = true;
     protected $createdField  = 'criado_em';
@@ -16,11 +28,11 @@ class UsuarioModel extends Model
     protected $deletedField  = 'deletado_em';
 
 	protected $validationRules    = [
-        'nome'     => 'required|min_length[4]|min_length[120]',
+        'nome'     => 'required|min_length[4]|max_length[120]',
         'email'        => 'required|valid_email|is_unique[usuario.email]',
         'cpf'        => 'required|exact_length[14]|is_unique[usuario.cpf]',
         'password'     => 'required|min_length[6]',
-        'pass_confirm' => 'required_with[password]|matches[password]'
+        'password_confirmation' => 'required_with[password]|matches[password]'
     ];
 
     protected $validationMessages = [
@@ -41,7 +53,8 @@ class UsuarioModel extends Model
 	 *  Array de Usuarios
 	 * 
 	 */
-	public function procurar($term){
+	public function procurar($term)
+	{
 		if ($term === null) {
 			return [];
 		}
@@ -52,5 +65,10 @@ class UsuarioModel extends Model
 					->getResult();
 	}
 
+	public function desabilitaValidacaoSenha()
+	{
+		unset($this->validationRules['password']);
+		unset($this->validationRules['password_confirmation']);
+	}
 
 }

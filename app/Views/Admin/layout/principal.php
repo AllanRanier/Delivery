@@ -257,7 +257,7 @@
 
                     <?php if ($mensagem = session()->has('info')) : ?>
                         <div class="alert alert-info alert-dismissible fade show" role="alert">
-                            <strong>Informação!</strong> <?php session('info') ?>
+                            <strong>Informação!</strong> <?php echo session('info') ?>
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>

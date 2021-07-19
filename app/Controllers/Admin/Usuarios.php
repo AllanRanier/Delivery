@@ -20,8 +20,6 @@ class Usuarios extends BaseController
 			'titulo' => 'Listando os Usuários',
 			'usuarios' =>  $this->UsuarioModel->findAll()
 		];
-
-		session()->set('sucesso', 'Teste bb');
 		return view('Admin/Usuarios/index', $data);
 	}
 
@@ -44,6 +42,20 @@ class Usuarios extends BaseController
 		return $this->response->setJson($resultado);
 	}
 
+	public function show($id = null)
+	{
+		$usuario = $this->buscaUsuarioOu404($id);
+
+		// dd($usuario);
+		$data = [
+			'titulo' => "Detalhado o usuário $usuario->nome",
+			'usuario' => $usuario
+
+		];
+
+		return view('Admin/Usuarios/show', $data);
+	}
+
 	public function editar($id = null)
 	{
 		$usuario = $this->buscaUsuarioOu404($id);
@@ -58,18 +70,39 @@ class Usuarios extends BaseController
 		return view('Admin/Usuarios/editar', $data);
 	}
 
-	public function show($id = null)
+	public function atualizar($id = null)
 	{
-		$usuario = $this->buscaUsuarioOu404($id);
+		if ($this->request->getMethod() === 'post') {
+			$usuario = $this->buscaUsuarioOu404($id);
 
-		// dd($usuario);
-		$data = [
-			'titulo' => "Detalhado o usuário $usuario->nome",
-			'usuario' => $usuario
 
-		];
+			$post = $this->request->getPost();
 
-		return view('Admin/Usuarios/show', $data);
+
+			if (empty($post['password'])) {
+				$this->UsuarioModel->desabilitaValidacaoSenha();
+				unset($post['password']);
+				unset($post['password_confirmation']);
+			}
+
+			$usuario->fill($post);
+			dd($usuario);
+			if (!$usuario->hasChanged()) {
+				return redirect()->back()->with('info', "Não dados para atualizar.");
+			}
+
+			if ($this->UsuarioModel->protect(false)->save($usuario)) {
+				return redirect()->to(site_url("admin/usuarios/show/$usuario->id"))
+								->with('sucesso', "Usuário $usuario->nome atualizado com sucesso.");
+			}else {
+				return redirect()->back()->with('errors_model', $this->UsuarioModel->errors())
+										->with('atencao', 'Por favor corrija os dados abaixo.');
+			}
+
+		}else{
+			/* caso não seja post */
+			return redirect()->back();
+		}
 	}
 
 	/**
