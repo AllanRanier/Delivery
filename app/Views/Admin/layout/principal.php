@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Food Delivery | <?php echo $this->renderSection('titulo')?></title> 
+    <title>Food Delivery | <?php echo $this->renderSection('titulo') ?></title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="<?php echo site_url('admin/'); ?>vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="<?php echo site_url('admin/'); ?>vendors/base/vendor.bundle.base.css">
@@ -19,7 +19,7 @@
     <link rel="shortcut icon" href="<?php echo site_url('admin/'); ?>images/favicon.png" />
 
     <!-- Essa Section renderizará os estilos  espesifico-->
-    <?php echo $this->renderSection('estilos')?>
+    <?php echo $this->renderSection('estilos') ?>
 </head>
 
 <body>
@@ -29,10 +29,8 @@
             <div class="navbar-brand-wrapper d-flex justify-content-center">
                 <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">
                     <a class="navbar-brand brand-logo" href="index.html"><img src="images/logo.svg" alt="logo" /></a>
-                    <a class="navbar-brand brand-logo-mini" href="index.html"><img src="images/logo-mini.svg"
-                            alt="logo" /></a>
-                    <button class="navbar-toggler navbar-toggler align-self-center" type="button"
-                        data-toggle="minimize">
+                    <a class="navbar-brand brand-logo-mini" href="index.html"><img src="images/logo-mini.svg" alt="logo" /></a>
+                    <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
                         <span class="mdi mdi-sort-variant"></span>
                     </button>
                 </div>
@@ -46,20 +44,17 @@
                                     <i class="mdi mdi-magnify"></i>
                                 </span>
                             </div>
-                            <input type="text" class="form-control" placeholder="Search now" aria-label="search"
-                                aria-describedby="search">
+                            <input type="text" class="form-control" placeholder="Search now" aria-label="search" aria-describedby="search">
                         </div>
                     </li>
                 </ul>
                 <ul class="navbar-nav navbar-nav-right">
                     <li class="nav-item dropdown mr-1">
-                        <a class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center"
-                            id="messageDropdown" href="#" data-toggle="dropdown">
+                        <a class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center" id="messageDropdown" href="#" data-toggle="dropdown">
                             <i class="mdi mdi-message-text mx-0"></i>
                             <span class="count"></span>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown"
-                            aria-labelledby="messageDropdown">
+                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="messageDropdown">
                             <p class="mb-0 font-weight-normal float-left dropdown-header">Messages</p>
                             <a class="dropdown-item">
                                 <div class="item-thumbnail">
@@ -100,13 +95,11 @@
                         </div>
                     </li>
                     <li class="nav-item dropdown mr-4">
-                        <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center notification-dropdown"
-                            id="notificationDropdown" href="#" data-toggle="dropdown">
+                        <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center notification-dropdown" id="notificationDropdown" href="#" data-toggle="dropdown">
                             <i class="mdi mdi-bell mx-0"></i>
                             <span class="count"></span>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown"
-                            aria-labelledby="notificationDropdown">
+                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="notificationDropdown">
                             <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
                             <a class="dropdown-item">
                                 <div class="item-thumbnail">
@@ -154,8 +147,7 @@
                             <img src="images/faces/face5.jpg" alt="profile" />
                             <span class="nav-profile-name">Louis Barnett</span>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown"
-                            aria-labelledby="profileDropdown">
+                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
                             <a class="dropdown-item">
                                 <i class="mdi mdi-settings text-primary"></i>
                                 Settings
@@ -167,8 +159,7 @@
                         </div>
                     </li>
                 </ul>
-                <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
-                    data-toggle="offcanvas">
+                <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
                     <span class="mdi mdi-menu"></span>
                 </button>
             </div>
@@ -185,18 +176,15 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false"
-                            aria-controls="ui-basic">
+                        <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                             <i class="mdi mdi-circle-outline menu-icon"></i>
                             <span class="menu-title">UI Elements</span>
                             <i class="menu-arrow"></i>
                         </a>
                         <div class="collapse" id="ui-basic">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link"
-                                        href="pages/ui-features/buttons.html">Buttons</a></li>
-                                <li class="nav-item"> <a class="nav-link"
-                                        href="pages/ui-features/typography.html">Typography</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
                             </ul>
                         </div>
                     </li>
@@ -225,8 +213,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false"
-                            aria-controls="auth">
+                        <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
                             <i class="mdi mdi-account menu-icon"></i>
                             <span class="menu-title">User Pages</span>
                             <i class="menu-arrow"></i>
@@ -258,9 +245,47 @@
             <div class="main-panel">
                 <div class="content-wrapper">
 
-                
-                <!-- Essa Section renderizará os estilos  espesifico-->
-                <?php echo $this->renderSection('conteudo')?>
+
+                    <?php if (session()->has('sucesso')) : ?>
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <strong>Perfeito!</strong> <?php echo session('sucesso') ?>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    <?php endif; ?>
+
+                    <?php if ($mensagem = session()->has('info')) : ?>
+                        <div class="alert alert-info alert-dismissible fade show" role="alert">
+                            <strong>Informação!</strong> <?php session('info') ?>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    <?php endif; ?>
+
+                    <?php if ($mensagem = session()->has('atencao')) : ?>
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>Atenção!</strong> <?php echo session('atencao') ?>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    <?php endif; ?>
+                    
+                    
+                    <?php if (session()->has('error')) : ?>
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>Error!</strong> <?php echo session('error') ?>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    <?php endif; ?>
+
+
+                    <!-- Essa Section renderizará os estilos  espesifico-->
+                    <?php echo $this->renderSection('conteudo') ?>
 
                 </div>
                 <!-- content-wrapper ends -->
@@ -269,8 +294,7 @@
                     <div class="d-sm-flex justify-content-center justify-content-sm-between">
                         <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright ©
                             bootstrapdash.com 2020</span>
-                        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a
-                                href="https://www.bootstrapdash.com/" target="_blank">Bootstrap dashboard template</a>
+                        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap dashboard template</a>
                             from Bootstrapdash.com</span>
                     </div>
                 </footer>
@@ -296,17 +320,17 @@
     <script src="<?php echo site_url('admin/'); ?>js/template.js"></script>
     <!-- endinject -->
     <!-- Custom js for this page-->
-    <script src="<?php echo site_url('admin/')?>js/dashboard.js"></script>
-    <script src="<?php echo site_url('admin/')?>js/data-table.js"></script>
-    <script src="<?php echo site_url('admin/')?>js/jquery.dataTables.js"></script>
-    <script src="<?php echo site_url('admin/')?>js/dataTables.bootstrap4.js"></script>
+    <script src="<?php echo site_url('admin/') ?>js/dashboard.js"></script>
+    <script src="<?php echo site_url('admin/') ?>js/data-table.js"></script>
+    <script src="<?php echo site_url('admin/') ?>js/jquery.dataTables.js"></script>
+    <script src="<?php echo site_url('admin/') ?>js/dataTables.bootstrap4.js"></script>
     <!-- End custom js for this page-->
-    <script src="<?php echo site_url('admin/')?>js/jquery.cookie.js" type="text/javascript"></script>
+    <script src="<?php echo site_url('admin/') ?>js/jquery.cookie.js" type="text/javascript"></script>
 
 
-    
+
     <!-- Essa Section renderizará os scripts  espesifico-->
-    <?php echo $this->renderSection('scripts')?>
+    <?php echo $this->renderSection('scripts') ?>
 
 </body>
 
