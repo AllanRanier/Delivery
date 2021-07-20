@@ -10,15 +10,15 @@ class UsuarioSeeder extends Seeder
 	{
 		$usuarioModel = new \App\Models\UsuarioModel;
 
-		$usuario = [
+		$usuarios = [
 			'nome' => 'Administrador do Sistemas',
 			'email' => 'admin@admin.com',
-			'cpf' => '349.957.910-35',
-			'telefone' => '81 - 99999-9999',
+			'cpf' => '34995791035',
+			'telefone' => '81 99999-9999',
 			'password_hash' => ""
 		];
 
-		$usuarioModel->protect(false)->insert($usuario);
+		$usuarioModel->protect(false)->insert($usuarios);
 
 		dd($usuarioModel->errors());
 	}
