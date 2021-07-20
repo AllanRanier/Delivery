@@ -95,7 +95,7 @@ class Usuarios extends BaseController
 								->with('sucesso', "Usuário $usuario->nome atualizado com sucesso.");
 			}else {
 				return redirect()->back()->with('errors_model', $this->UsuarioModel->errors())
-										->with('atencao', 'Por favor corrija os dados abaixo.');
+										->with('atencao', 'Por favor verifique os erros  abaixo.');
 			}
 
 		}else{
