@@ -24,6 +24,7 @@ class Validation
 		FormatRules::class,
 		FileRules::class,
 		CreditCardRules::class,
+		\App\Validacoes\MinhaValidacoes::class, // Carregando as validaçoes
 	];
 
 	/**
