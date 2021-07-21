@@ -27,11 +27,10 @@
                     </ul>
                 <?php endif; ?>
 
-                <?php echo form_open("admin/usuarios/atualizar/$usuario->id"); ?>
+                <?php echo form_open("admin/usuarios/cadastrar"); ?>
 
                 <?php echo $this->include('Admin/Usuarios/form'); ?>
-
-                <a class="btn text-white btn btn-info btn-sm" href="<?php echo site_url("admin/usuarios/show/$usuario->id") ?>">
+                <a class="btn text-white btn btn-info btn-sm" href="<?php echo site_url("admin/usuarios") ?>">
                     <i class="mdi mdi-arrow-left btn-icon-append"></i>
                     Voltar
                 </a>

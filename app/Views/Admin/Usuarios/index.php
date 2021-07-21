@@ -5,7 +5,7 @@
 
 <?php echo $this->section('estilos'); ?>
 <!-- Enviando para o template principal os estilos -->
-<link rel="stylesheet" href="<?php echo site_url('admin/vendors/auto-complete/jquery-ui.css') ?>"/>
+<link rel="stylesheet" href="<?php echo site_url('admin/vendors/auto-complete/jquery-ui.css') ?>" />
 <?php echo $this->endSection(); ?>
 
 
@@ -18,12 +18,15 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title"><?php echo $titulo; ?></h4>
-                
+
                 <div class="ui-widget">
                     <input id="query" name='query' placeholder="Pesquise por um usuário" class="form-control bg-light mb-5"></h4>
                 </div>
-                
-                
+
+                <a class="btn btn btn-success float-right" href="<?php echo site_url("admin/usuarios/criar") ?>">
+                    <i class="mdi mdi-plus btn-icon-append"></i>
+                    Adicionar Usuário
+                </a>
                 <div class="table-responsive">
                     <table class="table table-hover">
                         <thead>
@@ -35,16 +38,16 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($usuarios as $usuario): ?>
-                            <tr>
-                                <td>         
-                                    <a href="<?php echo site_url("admin/usuarios/show/$usuario->id"); ?>"><?php echo $usuario->nome; ?></a>
-                                </td>
-                                <td><?php echo $usuario->email; ?></td>
-                                <td><?php echo $usuario->cpf; ?></td>
-                                <td><?php echo ($usuario->ativo == 't' ? '<label class="badge badge-primary">Sim</label>' : '<label class="badge badge-danger">Não</label>'); ?></td>
-                            </tr> 
-                            <?php endforeach; ?>                       
+                            <?php foreach ($usuarios as $usuario) : ?>
+                                <tr>
+                                    <td>
+                                        <a href="<?php echo site_url("admin/usuarios/show/$usuario->id"); ?>"><?php echo $usuario->nome; ?></a>
+                                    </td>
+                                    <td><?php echo $usuario->email; ?></td>
+                                    <td><?php echo $usuario->cpf; ?></td>
+                                    <td><?php echo ($usuario->ativo == 't' ? '<label class="badge badge-primary">Sim</label>' : '<label class="badge badge-danger">Não</label>'); ?></td>
+                                </tr>
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>
@@ -64,12 +67,11 @@
 <script src="<?php echo site_url('admin/vendors/auto-complete/jquery-ui.js') ?>"></script>
 
 <script>
-
-    $(function () {
+    $(function() {
 
         $("#query").autocomplete({
 
-            source: function (request, response) {
+            source: function(request, response) {
 
                 $.ajax({
 
@@ -78,16 +80,14 @@
                     data: {
                         term: request.term
                     },
-                    success: function (data) {
+                    success: function(data) {
 
                         if (data.length < 1) {
 
-                            var data = [
-                                {
-                                    label: 'Usuario não encontrado',
-                                    value: -1
-                                }
-                            ];
+                            var data = [{
+                                label: 'Usuario não encontrado',
+                                value: -1
+                            }];
 
                         }
                         response(data); // Aqui temos valor no data
@@ -98,7 +98,7 @@
 
             },
             minLenght: 1,
-            select: function (event, ui) {
+            select: function(event, ui) {
 
                 if (ui.item.value == -1) {
 
@@ -117,9 +117,6 @@
 
 
     });
-
-
-
 </script>
 <!-- 
 <script>

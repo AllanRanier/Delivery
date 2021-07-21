@@ -3,6 +3,7 @@
 namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
+use App\Entities\Usuario;
 
 class Usuarios extends BaseController
 {
@@ -41,6 +42,39 @@ class Usuarios extends BaseController
 		}
 		return $this->response->setJson($resultado);
 	}
+
+	public function criar()
+	{
+		$usuario = new Usuario();
+		// dd($usuario);
+		$data = [
+			'titulo' => "Criando novo usuário",
+			'usuario' => $usuario
+
+		];
+
+		return view('Admin/Usuarios/criar', $data);
+	}
+
+	public function cadastrar($id = null)
+	{
+		if ($this->request->getMethod() === 'post') {
+			$usuario = new Usuario($this->request->getPost());
+
+			if ($this->UsuarioModel->protect(false)->save($usuario)) {
+				return redirect()->to(site_url("admin/usuarios/show/".$this->UsuarioModel->getInsertID()))
+								->with('sucesso', "Usuário $usuario->nome cadastrado com sucesso.");
+			}else {
+				return redirect()->back()->with('errors_model', $this->UsuarioModel->errors())
+										->with('atencao', 'Por favor verifique os erros  abaixo.');
+			}
+
+		}else{
+			/* caso não seja post */
+			return redirect()->back();
+		}
+	}
+
 
 	public function show($id = null)
 	{

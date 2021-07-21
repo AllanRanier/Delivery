@@ -31,6 +31,7 @@ class UsuarioModel extends Model
         'nome'     => 'required|min_length[4]|max_length[120]',
         'email'        => 'required|valid_email|is_unique[usuario.email]',
         'cpf'        => 'required|exact_length[14]|is_unique[usuario.cpf]',
+        'telefone'        => 'required',
         'password'     => 'required|min_length[6]',
         'password_confirmation' => 'required_with[password]|matches[password]'
     ];
@@ -48,6 +49,22 @@ class UsuarioModel extends Model
             'is_unique' => 'Desculpe. Esse CPF já existe.',
 		],
     ];
+
+	protected $beforeInsert = ['hashPassword'];
+	protected $beforeUpdate = ['hashPassword'];
+
+	protected function hashPassword(array $data)
+	{
+		if (isset($data['data']['password'])) {
+			$data['data']['password_hash'] = password_hash($data['data']['password'], PASSWORD_DEFAULT);
+			unset($data['data']['password']);
+			unset($data['data']['password_confirmation']);
+		}
+
+		// dd($data);
+
+		return $data;
+	}
 
 	/**
 	 *  Array de Usuarios
