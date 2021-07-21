@@ -52,10 +52,6 @@
                                         <?php echo ($usuario->deletado_em == null ? '<label class="badge badge-primary">Disponivel</label>' : '<label class="badge badge-danger">Excluído</label>'); ?>
                                         <?php if ($usuario->deletado_em != null) : ?>
 
-                                            <a class="badge badge-dark ml-2" href="<?php echo site_url("admin/usuarios/desfazerexclusao/$usuario->id") ?>">
-                                                <i class="mdi mdi-undo btn-icon-append"></i>
-                                                Desfazer
-                                            </a>
 
                                         <?php endif; ?>
                                     </td>
