@@ -19,7 +19,7 @@ class Usuarios extends BaseController
 		// dd($this->UsuarioModel->findAll());
 		$data = [
 			'titulo' => 'Listando os Usuários',
-			'usuarios' =>  $this->UsuarioModel->findAll()
+			'usuarios' =>  $this->UsuarioModel->withDeleted(true)->findAll()
 		];
 		return view('Admin/Usuarios/index', $data);
 	}
@@ -80,6 +80,10 @@ class Usuarios extends BaseController
 	{
 		$usuario = $this->buscaUsuarioOu404($id);
 
+		if ($usuario->is_admin == 't') {
+			return redirect()->back()->with('info', "Não é possível excluir um usuário <b>Administrado</b>");
+		}
+
 		if ($this->request->getMethod() === 'post') {
 			$this->UsuarioModel->delete($id);
 
@@ -94,6 +98,25 @@ class Usuarios extends BaseController
 		];
 
 		return view('Admin/Usuarios/excluir', $data);
+	}
+
+	public function desfazerexclusao($id = null)
+	{
+		$usuario = $this->buscaUsuarioOu404($id);
+
+		if ($usuario->deletado_em == null) {
+			return redirect()->back()->with('info','Apenas usuários exluidos podem ser recuperados!');
+		}
+
+		if ($this->UsuarioModel->desfazerExclusao($id)) {
+			return redirect()->back()->with('sucesso','Exclusão desfeita com sucesso!');
+		}else{
+			return redirect()->back()
+							->with('errors_model', $this->UsuarioModel->errors())
+							->with('atencao', 'Por favor verifique os erros  abaixo.');
+
+		}
+
 	}
 
 
@@ -164,7 +187,7 @@ class Usuarios extends BaseController
 	 */
 	private function buscaUsuarioOu404(int $id = null)
 	{
-		if (!$id || !$usuario = $this->UsuarioModel->where('id', $id)->first()) {
+		if (!$id || !$usuario = $this->UsuarioModel->withDeleted(true)->where('id', $id)->first()) {
 			throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Não encontramos o usuario $id");
 		}
 

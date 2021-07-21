@@ -21,12 +21,14 @@ class UsuarioModel extends Model
 		'ativo',
 
 	];
-	protected $useSoftDelete = true;
+	//Datas
 	protected $useTimestamps = true;
     protected $createdField  = 'criado_em';
     protected $updatedField  = 'atualizado_em';
+    protected $dateFormat  = 'datetime';
+	protected $useSoftDeletes = true;
     protected $deletedField  = 'deletado_em';
-
+	//Validações
 	protected $validationRules    = [
         'nome'     => 'required|min_length[4]|max_length[120]',
         'email'        => 'required|valid_email|is_unique[usuario.email]',
@@ -86,6 +88,14 @@ class UsuarioModel extends Model
 	{
 		unset($this->validationRules['password']);
 		unset($this->validationRules['password_confirmation']);
+	}
+
+	public function desfazerExclusao(int $id)
+	{
+		return $this->protect(false)
+					->where('id',$id)
+					->set('deletado_em', null)
+					->update();
 	}
 
 }
