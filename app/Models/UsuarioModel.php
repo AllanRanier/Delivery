@@ -98,4 +98,9 @@ class UsuarioModel extends Model
 					->update();
 	}
 
+	public function buscaUsuarioEmail(string $email)
+	{
+		return $this->wehere('email', $email);
+	}
+
 }

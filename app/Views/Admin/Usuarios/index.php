@@ -131,42 +131,5 @@
 
     });
 </script>
-<!-- 
-<script>
-    $(function () {
-        $("#query").autocomplete({
-            source: function(request, response){
-                $.ajax({
-                    url: "<?php echo site_url('admin/usuarios/procurar') ?>",
-                    dataType: "json",
-                    data:{
-                        term: request.term
-                    },
-                    success: function(data){
-                        if (data.length < 1) {
-                            var data = [{
-                                label: "Usuario Não Encontrado",
-                                value: -1
-                            }];
-                        }
-                        response(data); // aqui temos valor no data
-                    },
-                }); // fim ajax
-            },
-
-            minLenght: 1,
-            select: function(event, ui){
-                if (ui.item.value == -1) {
-                    $(this).val("");
-                    return false;
-                }else {
-                    window.localtion.href = '<?php echo site_url('admin/usuarios/show/'); ?>' + ui.item.id;
-                }
-            }
-        }); // fim autocomplete
-    })
-
-
-</script> -->
 
 <?php echo $this->endSection(); ?>
