@@ -30,7 +30,7 @@
                         </div>
                     <?php endif; ?>
 
-                    <?php if ($mensagem = session()->has('info')) : ?>
+                    <?php if (session()->has('info')) : ?>
                         <div class="alert alert-info alert-dismissible fade show" role="alert">
                             <strong>Informação!</strong> <?php echo session('info') ?>
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -39,7 +39,7 @@
                         </div>
                     <?php endif; ?>
 
-                    <?php if ($mensagem = session()->has('atencao')) : ?>
+                    <?php if (session()->has('atencao')) : ?>
                         <div class="alert alert-danger alert-dismissible fade show" role="alert">
                             <strong>Atenção!</strong> <?php echo session('atencao') ?>
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
