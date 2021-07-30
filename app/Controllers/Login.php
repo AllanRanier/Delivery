@@ -31,7 +31,7 @@ class Login extends BaseController
             ->first();    
 
         if (!$user || !password_verify($data['password'], $user->password_hash)) {
-            return  redirect()->to('/login')->with('info', "E-mail e Senha Incorretos!");
+            return  redirect()->to('/login')->with('atencao', "E-mail e Senha Incorretos!");
         } else {
 			$this->session->set([
 				'email' => $this->request->getPost('email'),
