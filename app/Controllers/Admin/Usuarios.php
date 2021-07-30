@@ -16,7 +16,6 @@ class Usuarios extends BaseController
 
 	public function index()
 	{
-		// dd($this->UsuarioModel->findAll());
 		$data = [
 			'titulo' => 'Listando os Usuários',
 			'usuarios' =>  $this->UsuarioModel->withDeleted(true)->paginate(5),

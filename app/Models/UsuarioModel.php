@@ -55,6 +55,7 @@ class UsuarioModel extends Model
 	protected $beforeInsert = ['hashPassword'];
 	protected $beforeUpdate = ['hashPassword'];
 
+
 	protected function hashPassword(array $data)
 	{
 		if (isset($data['data']['password'])) {
@@ -100,7 +101,7 @@ class UsuarioModel extends Model
 
 	public function buscaUsuarioEmail(string $email)
 	{
-		return $this->wehere('email', $email);
+		return $this->where('email', $email);
 	}
 
 }
