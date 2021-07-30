@@ -1,4 +1,4 @@
-<?php echo $this->extend('Login/autenticacao');  ?>
+<?php echo $this->extend('Admin/layout/principal_autenticacao');  ?>
 
 <?php echo $this->section('titulo'); ?> <?php echo $titulo; ?> <?php echo $this->endSection(); ?>
 
@@ -19,8 +19,8 @@
                     <div class="brand-logo">
                         <img src="<?php echo site_url('admin/'); ?>images/logo.svg" alt="logo">
                     </div>
-                    <h4>Olá, seja bem vindo(a)!</h4>
-                    <h6 class="font-weight-light mb-4">Por favor realize o login para continuar.</h6>
+                    <h4>Recuperando a senha!</h4>
+                    <h6 class="font-weight-light mb-4"><?php echo $titulo; ?></h6>
                     <?php if (session()->has('sucesso')) : ?>
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
                             <strong>Perfeito!</strong> <?php echo session('sucesso') ?>
@@ -71,22 +71,12 @@
                             <input type="text" class="form-control form-control-lg border-left-0" id="email" name="email" <?php echo old('email') ?> placeholder="E-mail">
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword">Senha</label>
-                        <div class="input-group">
-                            <div class="input-group-prepend bg-transparent">
-                                <span class="input-group-text bg-transparent border-right-0">
-                                    <i class="mdi mdi-lock-outline text-primary"></i>
-                                </span>
-                            </div>
-                            <input type="password" class="form-control form-control-lg border-left-0" id="password" name="password" placeholder="Senha">
-                        </div>
-                    </div>
+
                     <div class="my-3">
-                        <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">Entrar</button>
+                        <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">Enviar</button>
                     </div>
-                    <div class="text-center mt-4 font-weight-light">
-                        Não tem uma contar? <a href="<?php echo site_url('registrar') ?>" class="text-primary"> Criar</a>
+                    <div class="my-3 d-flex justify-content-between align-items-center">
+                        <a href="<?php echo site_url('login') ?>" class="auth-link text-black">Lembrei a minha senha</a>
                     </div>
                     <?php echo form_close(); ?>
                 </div>

@@ -18,7 +18,7 @@ class Login extends BaseController
 	}
 	public function novo()
 	{
-		return view('Login/novo', [
+		return view('Login/index', [
 			'titulo' => 'Realize o login.'
 		]);
 	}
@@ -51,4 +51,11 @@ class Login extends BaseController
         session()->destroy();
         return redirect()->to('/login');
     }
+
+	public function esqueci()
+	{
+		return view('Password/index',[
+			'titulo' => 'Esqueci a senha.'
+		]);
+	}
 }
