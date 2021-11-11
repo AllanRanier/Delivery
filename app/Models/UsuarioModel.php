@@ -28,6 +28,7 @@ class UsuarioModel extends Model
     protected $dateFormat  = 'datetime';
 	protected $useSoftDeletes = true;
     protected $deletedField  = 'deletado_em';
+	
 	//Validações
 	protected $validationRules    = [
         'nome'     => 'required|min_length[4]|max_length[120]',

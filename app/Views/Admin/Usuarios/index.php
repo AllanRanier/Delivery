@@ -15,7 +15,7 @@
 
 <div class="row">
     <div class="col-lg-12 grid-margin stretch-card">
-        <div class="card">
+        <div class="card ">
             <div class="card-body">
                 <h4 class="card-title"><?php echo $titulo; ?></h4>
 
@@ -23,12 +23,12 @@
                     <input id="query" name='query' placeholder="Pesquise por um usuário" class="form-control bg-light mb-5"></h4>
                 </div>
 
-                <a class="btn btn btn-success float-right" href="<?php echo site_url("admin/usuarios/criar") ?>">
+                <a class="btn btn btn-success float-right mb-3" href="<?php echo site_url("admin/usuarios/criar") ?>">
                     <i class="mdi mdi-plus btn-icon-append"></i>
                     Adicionar Usuário
                 </a>
                 <div class="table-responsive">
-                    <table class="table table-hover">
+                    <table class="table table-bordered table-hover">
                         <thead>
                             <tr>
                                 <th>Nome</th>
@@ -46,13 +46,10 @@
                                     </td>
                                     <td><?php echo $usuario->email; ?></td>
                                     <td><?php echo $usuario->cpf; ?></td>
-                                    <td><?php echo ($usuario->ativo == 't' && $usuario->deletado_em == null ? '<label class="badge badge-primary">Sim</label>' : '<label class="badge badge-danger">Não</label>'); ?></td>
+                                    <td><?php echo ($usuario->ativo == '1' && $usuario->deletado_em == null ? '<label class="badge badge-primary">Sim</label>' : '<label class="badge badge-danger">Não</label>'); ?></td>
                                     <td>
-
                                         <?php echo ($usuario->deletado_em == null ? '<label class="badge badge-primary">Disponivel</label>' : '<label class="badge badge-danger">Excluído</label>'); ?>
                                         <?php if ($usuario->deletado_em != null) : ?>
-
-
                                         <?php endif; ?>
                                     </td>
                                 </tr>

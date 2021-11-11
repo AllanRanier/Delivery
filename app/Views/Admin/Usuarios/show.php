@@ -28,11 +28,11 @@
                 </p>
                 <p class="card-text">
                     <span class="font-weight-bold">Ativo:</span>
-                    <?php echo esc($usuario->ativo == 't' ? 'Sim' : 'Não') ?>
+                    <?php echo esc($usuario->ativo == '1' ? 'Sim' : 'Não') ?>
                 </p>
                 <p class="card-text">
                     <span class="font-weight-bold">Perfil:</span>
-                    <?php echo esc($usuario->is_admin == 't' ? 'Administrador' : 'Cliente') ?>
+                    <?php echo esc($usuario->is_admin == '1' ? 'Administrador' : 'Cliente') ?>
                 </p>
                 <p class="card-text">
                     <span class="font-weight-bold">Criado:</span>

@@ -13,8 +13,9 @@ class UsuarioSeeder extends Seeder
 		$usuarios = [
 			'nome' => 'Administrador do Sistemas',
 			'email' => 'admin@admin.com',
-			'cpf' => '34995791035',
+			'cpf' => '116.835.754-31',
 			'telefone' => '81 99999-9999',
+			'password' => '102030',
 			'password_hash' => ""
 		];
 
